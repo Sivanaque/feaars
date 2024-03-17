@@ -13,7 +13,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Signika:wght@300..700&display=swap" rel="stylesheet">
-    
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+/>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
 
@@ -51,7 +54,7 @@
       }
 
       .sinister {
-        background: url("./img/sinister.png") no-repeat center 63%; 
+        background: url("./img/sinister.png") no-repeat right 60%; 
       }
 
       body {
@@ -119,78 +122,30 @@
     
   </head>
   <body>
-    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
-      <symbol id="check2" viewBox="0 0 16 16">
-        <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
-      </symbol>
-      <symbol id="circle-half" viewBox="0 0 16 16">
-        <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
-      </symbol>
-      <symbol id="moon-stars-fill" viewBox="0 0 16 16">
-        <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
-        <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
-      </symbol>
-      <symbol id="sun-fill" viewBox="0 0 16 16">
-        <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
-      </symbol>
-    </svg>
-
-    <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
-      <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
-              id="bd-theme"
-              type="button"
-              aria-expanded="false"
-              data-bs-toggle="dropdown"
-              aria-label="Toggle theme (auto)">
-        <svg class="bi my-1 theme-icon-active" width="1em" height="1em"><use href="#circle-half"></use></svg>
-        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
-      </button>
-      <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
-        <li>
-          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
-            <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#sun-fill"></use></svg>
-            Light
-            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
-          </button>
-        </li>
-        <li>
-          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
-            <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
-            Dark
-            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
-          </button>
-        </li>
-        <li>
-          <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
-            <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#circle-half"></use></svg>
-            Auto
-            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
-          </button>
-        </li>
-      </ul>
-    </div>
-
-          <nav class="navbar navbar-expand-lg bg-black fs-5 shadow-lg">
+          <nav class="navbar navbar-expand-lg bg-black fs-6 shadow-lg">
           <div class="container-fluid">            
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse justify-content-center hstack" id="navbarNav">
+            <div class="collapse navbar-collapse justify-content-center " id="navbarNav">
               <ul class="navbar-nav gap-3 align-items-center">
                 <li class="nav-item">
-                <img src="./img/logo.png" width="75px" alt="FEAARS" class="title-movie m-2 p-2">
+                <img src="./img/logo.png" width="75px" alt="FEAARS" class="title-movie p-2 mx-5">
                 </li>
                 <li class="nav-item">
                   <a class="nav-link active text-light" aria-current="page" href="#">Accueil</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link text-light" href="#">Catalogue</a>
+                  <a class="nav-link text-light" href="#">Tous nos films</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-light" aria-disabled="true">Catégories</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link text-light" href="#">Prix</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link text-light" aria-disabled="true">Disabled</a>
+                  <button type="button" class="btn btn-outline-danger mb-2">S'abonner</button>
                 </li>
               </ul>
             </div>
@@ -199,152 +154,88 @@
 <main>
   <section class="sinister py-5 text-center p-5 container-fluid">
     <div class="row py-lg-5">
-      <div class="col-lg-3 mx-auto">
-        <div class="bg-light bg-opacity-75">
-          <h1 class="">Disponible maintenant</h1>
-        <img src="./img/sinister-title.png" alt="" style="width: 350px;">
+      <div class="col-lg-4 ms-auto me-5">
+        <div class="bg-dark bg-opacity-75 rounded-2">
+        <img src="./img/sinister-title.png" alt="" style="width: 350px;" class="p-1">
+        <h1 class="text-light">Maintenant disponible !</h1>
         </div>
       </div>
     </div>
   </section>
+  <div class="container-fluid">
+    <div class="col text-center">
+      <div class="row bg-black p-5 text-light">
+        <h3 class="">FEAARS, une plateforme de streaming entièrement dedié au meuilleur du cinéma d'horreur !</h3>
+        <p>On a tous une petite envie de frissons de temps à autres, à ce moment-là, on rentre en jeu pour vous proposez nos meuilleurs recommandations de films pour sauter et frissoner de peur.</p>
+        <h1>🍿👻</h1>
+      </div>
+    </div>
+  </div>
 
-  <div class="album py-5 bg-body-tertiary">
+  <div class="album py-5 bg-black bg-gradient">
     <div class="container">
-
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-        <div class="col">
+      <h1 class="text-left text-light  mb-5 ">Du sang frais : </h1>
+      <div class="row row-cols-1 row-cols-sm-3 row-cols-md-4 g-2">
+        <div class="col animate__animated animate__fadeInLeft">
           <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+            <img src="./img/movies/saw.png" width="100%" height="405" alt="">
             <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <h4>Saw</h4>
+              <small class="text-body-secondary">Thriller - Gore • </small>
+              <small class="text-body-secondary fw-bold">16+</small>
               <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                <div class="btn-group flex-fill">
+                  <button type="button" class="btn btn-sm btn-outline-danger">Regarder</button>
+                  <button type="button" class="btn btn-sm btn-outline-dark">Plus</button>
                 </div>
-                <small class="text-body-secondary">9 mins</small>
               </div>
             </div>
           </div>
         </div>
-        <div class="col">
+        <div class="col animate__animated animate__fadeInLeft">
           <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+            <img src="./img/movies/sinister.jpeg" width="100%" height="405" alt="">
             <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <h4>Sinister</h4>
+              <small class="text-body-secondary">Épouvante • </small>
+              <small class="text-body-secondary fw-bold">12+</small>
               <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                <div class="btn-group flex-fill">
+                  <button type="button" class="btn btn-sm btn-outline-danger">Regarder</button>
+                  <button type="button" class="btn btn-sm btn-outline-dark">Plus</button>
                 </div>
-                <small class="text-body-secondary">9 mins</small>
               </div>
             </div>
           </div>
         </div>
-        <div class="col">
+        <div class="col animate__animated animate__fadeInLeft">
           <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+            <img src="./img/movies/vhs2.jpg" width="100%" height="405" alt="">
             <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <h4>V/H/S/2</h4>
+              <small class="text-body-secondary">Found footage - Film à sketchs • </small>
+              <small class="text-body-secondary fw-bold">16+</small>
               <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                <div class="btn-group flex-fill">
+                  <button type="button" class="btn btn-sm btn-outline-danger">Regarder</button>
+                  <button type="button" class="btn btn-sm btn-outline-dark">Plus</button>
                 </div>
-                <small class="text-body-secondary">9 mins</small>
               </div>
             </div>
           </div>
         </div>
-
-        <div class="col">
+        <div class="col animate__animated animate__fadeInLeft">
           <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+            <img src="./img/movies/gummo.jpg" width="100%" height="405" alt="">
             <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <h4>Gummo</h4>
+              <small class="text-body-secondary">Indépendant - Drame • </small>
+              <small class="text-body-secondary fw-bold">16+</small>
               <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                <div class="btn-group flex-fill">
+                  <button type="button" class="btn btn-sm btn-outline-danger">Regarder</button>
+                  <button type="button" class="btn btn-sm btn-outline-dark">Plus</button>
                 </div>
-                <small class="text-body-secondary">9 mins</small>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-body-secondary">9 mins</small>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-body-secondary">9 mins</small>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-body-secondary">9 mins</small>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-body-secondary">9 mins</small>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-body-secondary">9 mins</small>
               </div>
             </div>
           </div>
@@ -353,15 +244,152 @@
     </div>
   </div>
 
+
+
+  <div class="album py-5 bg-black ">
+    <div class="container">
+      <h1 class="text-left text-light  mb-5 ">Vivez le personnage ! (Found footage) : </h1>
+      <div class="row row-cols-1 row-cols-sm-3 row-cols-md-4 g-2">
+        <div class="col animate__animated animate__fadeInLeft">
+          <div class="card shadow-sm">
+            <img src="./img/movies/vhs2.jpg" width="100%" height="405" alt="">
+            <div class="card-body">
+              <h4>V/H/S/2</h4>
+              <small class="text-body-secondary">Found footage - Film à sketchs • </small>
+              <small class="text-body-secondary fw-bold">16+</small>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group flex-fill">
+                  <button type="button" class="btn btn-sm btn-outline-danger">Regarder</button>
+                  <button type="button" class="btn btn-sm btn-outline-dark">Plus</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col animate__animated animate__fadeInLeft">
+          <div class="card shadow-sm">
+            <img src="./img/movies/afflicted.jpg" width="100%" height="405" alt="">
+            <div class="card-body">
+              <h4>Afflicted</h4>
+              <small class="text-body-secondary">Found footage - Drame • </small>
+              <small class="text-body-secondary fw-bold">16+</small>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group flex-fill">
+                  <button type="button" class="btn btn-sm btn-outline-danger">Regarder</button>
+                  <button type="button" class="btn btn-sm btn-outline-dark">Plus</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col animate__animated animate__fadeInLeft">
+          <div class="card shadow-sm">
+            <img src="./img/movies/vhs-viral.jpg" width="100%" height="405" alt="">
+            <div class="card-body">
+              <h4>V/H/S Viral</h4>
+              <small class="text-body-secondary">Found Footage - Film à sketchs • </small>
+              <small class="text-body-secondary fw-bold">16+</small>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group flex-fill">
+                  <button type="button" class="btn btn-sm btn-outline-danger">Regarder</button>
+                  <button type="button" class="btn btn-sm btn-outline-dark">Plus</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col animate__animated animate__fadeInLeft">
+          <div class="card shadow-sm">
+            <img src="./img/movies/grave-encounters.webp" width="100%" height="405" alt="">
+            <div class="card-body">
+              <h4>Grave Encounters</h4>
+              <small class="text-body-secondary">Found footage - Paranormal • </small>
+              <small class="text-body-secondary fw-bold">12+</small>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group flex-fill">
+                  <button type="button" class="btn btn-sm btn-outline-danger">Regarder</button>
+                  <button type="button" class="btn btn-sm btn-outline-dark">Plus</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col animate__animated animate__fadeInLeft">
+          <div class="card shadow-sm">
+            <img src="./img/movies/rec.jpg" width="100%" height="405" alt="">
+            <div class="card-body">
+              <h4>REC</h4>
+              <small class="text-body-secondary">Found footage - Paranormal • </small>
+              <small class="text-body-secondary fw-bold">12+</small>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group flex-fill">
+                  <button type="button" class="btn btn-sm btn-outline-danger">Regarder</button>
+                  <button type="button" class="btn btn-sm btn-outline-dark">Plus</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col animate__animated animate__fadeInLeft">
+          <div class="card shadow-sm">
+            <img src="./img/movies/pa3.jpg" width="100%" height="405" alt="">
+            <div class="card-body">
+              <h4>Paranormal Activity 3</h4>
+              <small class="text-body-secondary">Found footage - Paranormal • </small>
+              <small class="text-body-secondary fw-bold">12+</small>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group flex-fill">
+                  <button type="button" class="btn btn-sm btn-outline-danger">Regarder</button>
+                  <button type="button" class="btn btn-sm btn-outline-dark">Plus</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+       <div class="col animate__animated animate__fadeInLeft">
+          <div class="card shadow-sm">
+            <img src="./img/movies/host.jpg" width="100%" height="405" alt="">
+            <div class="card-body">
+              <h4>Host</h4>
+              <small class="text-body-secondary">Found footage - Paranormal • </small>
+              <small class="text-body-secondary fw-bold">12+</small>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group flex-fill">
+                  <button type="button" class="btn btn-sm btn-outline-danger">Regarder</button>
+                  <button type="button" class="btn btn-sm btn-outline-dark">Plus</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col animate__animated animate__fadeInLeft">
+          <div class="card shadow-sm">
+            <img src="./img/movies/vhs.jpeg" width="100%" height="405" alt="">
+            <div class="card-body">
+              <h4>V/H/S</h4>
+              <small class="text-body-secondary">Found footage - Film à sketchs • </small>
+              <small class="text-body-secondary fw-bold">16+</small>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group flex-fill">
+                  <button type="button" class="btn btn-sm btn-outline-danger">Regarder</button>
+                  <button type="button" class="btn btn-sm btn-outline-dark">Plus</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </main>
 
-<footer class="text-body-secondary py-5">
-  <div class="container">
-    <p class="float-end mb-1">
-      <a href="#">Back to top</a>
-    </p>
-    <p class="mb-1">Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
-    <p class="mb-0">New to Bootstrap? <a href="/">Visit the homepage</a> or read our <a href="../getting-started/introduction/">getting started guide</a>.</p>
+<footer class="text-body-secondary py-5 bg-black">
+  <div class="d-flex justify-content-center">
+    <a class="m-3 link-offset-3 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover text-light" href="#">🍪 Gestion des cookies et RGPD</a>
+    <a class="m-3 link-offset-3 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover text-light" href="#">Conditions Générales d'Utilisation</a>
+    <a class="m-3 link-offset-3 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover text-light" href="#">Mentions légales</a>
+    <a class="m-3 link-offset-3 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover text-light" href="#">F.A.Q</a>
+    <a class="m-3 link-offset-3 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover text-light flex-1" href="#">Revenir en haut</a>
   </div>
 </footer>
 <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
