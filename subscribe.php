@@ -129,9 +129,9 @@ href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
           require 'nav.php'
     ?>
 
-<main class="bg-black">
+<main class="bg-black min-vh-100">
 <h1 class="display-4 fw-normal text-center text-light p-4">Rejoignez la peur !</h1>
-      <p class="fs-5  text-center text-light">Des passionés de films paranormaux, underground, et même, fantastique vous propose leurs meuilleurs choix pour des prix bien faibles ! </p>
+      <p class="fs-5 text-center text-light">Des passionés de films paranormaux, underground, et même, fantastique vous propose leurs meuilleurs choix pour des prix bien faibles ! </p>
     <div class="container mx-auto row row-cols-1 row-cols-md-3 mb-3 text-center p-5">
       <div class="col">
         <div class="card mb-4 rounded-3 shadow-sm border-danger">
@@ -156,7 +156,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
             <h4 class="my-0 fw-normal">Trimestriel</h4>
           </div>
           <div class="card-body">
-            <h1 class="card-title pricing-card-title">€13.50<small class="text-body-secondary fw-light"></small></h1>
+            <h1 class="card-title pricing-card-title">€13.49<small class="text-body-secondary fw-light"></small></h1>
             <ul class="list-unstyled mt-3 mb-4">
               <li>Accès à tous les films</li>
               <li>Aucune publicitée </li>

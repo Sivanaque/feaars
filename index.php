@@ -124,7 +124,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
   </head>
   <body>
         <?php
-          require 'nav.php'
+          require 'nav.php';
         ?>
 <main>
   <section class="sinister py-5 text-center p-5 container-fluid">
