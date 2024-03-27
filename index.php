@@ -1,3 +1,8 @@
+<?php 
+  require "includes/functions.php"; 
+  echo generate_mdp();
+?>
+
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
   <head>
