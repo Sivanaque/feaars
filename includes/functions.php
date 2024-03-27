@@ -35,7 +35,6 @@ function connection_bdd($db_name,$user,$mdp)
     }
 }
 
-
 function logout() {
     session_start();
     $_SESSION = array();

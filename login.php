@@ -1,29 +1,20 @@
-<?php 
-  require "includes/functions.php"; 
-  echo generate_mdp();
+<?php
+    include "includes/functions.php";
+    connection_bdd("feaars", "antoine", "root");
 ?>
-
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
-  <head>
-    <script src="../assets/js/color-modes.js"></script>
+  <head><script src="../assets/js/color-modes.js"></script>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.122.0">
-    <title>Album example · Bootstrap v5.3</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/album/">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Signika:wght@300..700&display=swap" rel="stylesheet">
-<link
-rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-/>
+    <title>Signin Template · Bootstrap v5.3</title>
 
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sign-in/">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
 
 <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -43,7 +34,6 @@ href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
         }
       }
 
-      
       .b-example-divider {
         width: 100%;
         height: 3rem;
@@ -57,23 +47,6 @@ href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
         flex-shrink: 0;
         width: 1.5rem;
         height: 100vh;
-      }
-
-      .sinister {
-        background: url("./img/sinister.png") no-repeat right 60%; 
-      }
-
-      body {
-        font-family: "Signika", sans-serif;
-        font-optical-sizing: auto;
-        font-weight: 200;
-        font-style: normal;
-        font-variation-settings:
-        "GRAD" 0;
-      }
-
-      .red-btn {
-        background-color: #b90000;
       }
 
       .bi {
@@ -126,5 +99,88 @@ href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     </style>
 
     
+    <!-- Custom styles for this template -->
+    <link href="sign-in.css" rel="stylesheet">
   </head>
-  <body>
+  <body class="d-flex align-items-center py-4 bg-body-tertiary">
+      <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+            <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#sun-fill"></use></svg>
+            Light
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+            <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
+            Dark
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
+            <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#circle-half"></use></svg>
+            Auto
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+      </ul>
+    </div>
+
+    
+<main class="form-signin w-100 m-auto">
+  <form>
+    <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
+    <h1 class="h3 mb-3 fw-normal">Connectez-vous</h1>
+
+    <div class="form-floating">
+      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+      <label for="floatingInput">Email</label>
+    </div>
+    <div class="form-floating">
+      <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+      <label for="floatingPassword">Mot de passe</label>
+    </div>
+
+    <div class="form-check text-start my-3">
+      <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">
+      <label class="form-check-label" for="flexCheckDefault">
+        Remember me
+      </label>
+    </div>
+    <button class="btn btn-primary w-100 py-2" type="submit">Se connecter</button>  
+    <a href="" class="mt-5">Mot de passe oublié ?</a>
+    <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2024</p>
+
+  <?php
+        if(isset($_POST['submit'])) {
+          $user = $_POST['user'];
+          $passwd = sha1($_POST['passwd']);
+  
+          $request = $AgencyDB->prepare("SELECT * FROM users WHERE name = ? AND passwd = ?");
+          $request->execute([$user, $passwd]);
+  
+          $answer = $request->fetch();
+          if ($answer) {
+              if ($answer['level'] == 0) {
+                  echo '<h3 style="text-align: center";>Vous ne possédez pas les priviléges nécessaires.</h3>';
+              } else {
+                  $_SESSION['connecte'] = true;
+                  $_SESSION['user'] = $user;
+                  $_SESSION['level'] = $answer['level'];
+                  $_SESSION['id_u'] = $answer['id_u'];
+                  header('location: ./post-admin.php');
+          }
+      } else {
+              echo '<h3 style="text-align: center";>Identifiants incorrects.</h3>';
+      }
+  }   
+  ?>
+
+  </form>
+</main>
+<script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    </body>
+</html>
