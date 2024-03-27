@@ -2,6 +2,7 @@
     include "includes/functions.php";
     $bdd = connection_bdd("feaars", "antoine", "root");
 ?>
+
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
   <head><script src="../assets/js/color-modes.js"></script>
@@ -102,37 +103,15 @@
     <!-- Custom styles for this template -->
     <link href="sign-in.css" rel="stylesheet">
   </head>
-  <body class="d-flex align-items-center py-4 bg-body-tertiary">
-      <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
-        <li>
-          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
-            <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#sun-fill"></use></svg>
-            Light
-            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
-          </button>
-        </li>
-        <li>
-          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
-            <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
-            Dark
-            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
-          </button>
-        </li>
-        <li>
-          <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
-            <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#circle-half"></use></svg>
-            Auto
-            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
-          </button>
-        </li>
-      </ul>
-    </div>
-
-    
-<main class="form-signin w-100 m-auto">
-  <form method="POST">
-    <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
-    <h1 class="h3 mb-3 fw-normal text-center">Entrer votre email </h1>
+  
+  <body class="bg-black bg-gradient">
+    <?php
+        include 'includes/header.php'
+    ?>
+<main class="form-signin w-50 m-auto ">
+  <div class="container-fluid d-flex flex-column justify-content-center m-auto">
+  <h1 class="h3 mb-3 fw-normal text-white">Rénitialiser</h1>
+    <form method="POST">
 
     <div class="form-floating">
       <input type="text" class="form-control" id="floatingPassword" name="email" placeholder="email">
@@ -148,21 +127,20 @@
             $answer = $request->fetch();
 
             if ($answer) {
-                echo 'EMAIL TROUVE';
-                $new_mdp = generate_mdp();
+                $new_mdp = sha1(generate_mdp());
 
                 $request = $bdd->prepare("UPDATE users SET mdp = ? WHERE email = ?");
-                $request->execute([sha1($new_mdp), $email]);
-                echo 'Mot de passe mis à jour!';
+                $request->execute([$new_mdp, $email]);
+                echo '<b class="text-white";>Mot de passe réinitialiser.</b>';
             } else {
-                echo 'MAIL NON TROUVE';
+                echo '<b class="text-white";>Votre mot de passe est incorrect.</b>';
             }
 
         }
   ?>
     <input type="submit" class="btn btn-danger w-100 py-2 mt-3" type="submit" name="submit" value="Vérifier"></input>  
-    <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2024</p>
   </form>
+      </div>
 </main>
 <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

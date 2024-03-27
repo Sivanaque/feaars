@@ -9,7 +9,7 @@
                 <img src="./img/logo.png" width="75px" alt="FEAARS" class="title-movie p-2 mx-5">
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link active text-light" aria-current="page" href="#">Accueil</a>
+                  <a class="nav-link active text-light" aria-current="page" href="./index.php">Accueil</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link text-light" href="#">Tous nos films</a>
@@ -27,15 +27,12 @@
                     <li><a class="dropdown-item" href="#">Paranormal</a></li>
                   </ul>
                 </li>
-        
+      
                 <li class="nav-item">
-                  <a class="nav-link text-light" href="#">Prix</a>
+                  <a href="subscribe.php" class="nav-link text-light p-0">S'abonner</a>
                 </li>
                 <li class="nav-item">
-                  <button type="button" class="btn btn-outline-danger mb-2" href="subscribe.php"><a href="subscribe.php" class="nav-link text-light p-0">S'abonner</a></button>
-                </li>
-                <li class="nav-item">
-                  <button type="button" class="btn btn-outline-danger mb-2" href="login.php">Se connecter</button>
+                  <button type="button" class="btn btn-danger mb-2"><a href="login.php" class="nav-link text-light p-0">Se connecter</a></button>
                 </li>
               </ul>
             </div>

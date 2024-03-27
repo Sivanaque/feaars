@@ -101,37 +101,14 @@
     <!-- Custom styles for this template -->
     <link href="sign-in.css" rel="stylesheet">
   </head>
-  <body class="d-flex align-items-center py-4 bg-body-tertiary">
-      <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
-        <li>
-          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
-            <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#sun-fill"></use></svg>
-            Light
-            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
-          </button>
-        </li>
-        <li>
-          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
-            <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
-            Dark
-            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
-          </button>
-        </li>
-        <li>
-          <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
-            <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#circle-half"></use></svg>
-            Auto
-            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
-          </button>
-        </li>
-      </ul>
-    </div>
-
-    
-<main class="form-signin w-100 m-auto">
-  <form>
-    <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
-    <h1 class="h3 mb-3 fw-normal">Connectez-vous</h1>
+  
+  <body class="bg-black bg-gradient">
+    <?php
+        include 'includes/header.php'
+    ?>
+<main class="form-signin w-50 m-auto ">
+  <div class="container d-flex flex-column justify-content-center m-auto">
+    <h1 class="h3 mb-3 fw-normal text-white">Connectez-vous</h1>
 
     <div class="form-floating">
       <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
@@ -141,17 +118,8 @@
       <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
       <label for="floatingPassword">Mot de passe</label>
     </div>
-
-    <div class="form-check text-start my-3">
-      <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">
-      <label class="form-check-label" for="flexCheckDefault">
-        Remember me
-      </label>
-    </div>
-    <button class="btn btn-danger w-100 py-2" type="submit">Se connecter</button>  
-    <a href="mdpo.php" class="mt-5">Mot de passe oublié ?</a>
-    <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2024</p>
-
+    <button class="btn btn-danger w-100 py-2 mb-3" type="submit">Se connecter</button>  
+    <a href="mdpo.php" class="m-3 link-offset-3 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover text-light">Mot de passe oublié ?</a>
   <?php
   
         if(isset($_POST['submit'])) {
@@ -177,8 +145,7 @@
       }
   }   
   ?>
-
-  </form>
+      </div>
 </main>
 <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
