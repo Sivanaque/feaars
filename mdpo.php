@@ -1,5 +1,6 @@
 <?php
     include "includes/functions.php";
+    $bdd = connection_bdd("feaars", "antoine", "root");
 ?>
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
@@ -129,55 +130,38 @@
 
     
 <main class="form-signin w-100 m-auto">
-  <form>
+  <form method="POST">
     <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
-    <h1 class="h3 mb-3 fw-normal">Connectez-vous</h1>
+    <h1 class="h3 mb-3 fw-normal text-center">Entrer votre email </h1>
 
     <div class="form-floating">
-      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-      <label for="floatingInput">Email</label>
+      <input type="text" class="form-control" id="floatingPassword" name="email" placeholder="email">
+      <label for="floatingPassword">Email</label>
     </div>
-    <div class="form-floating">
-      <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-      <label for="floatingPassword">Mot de passe</label>
-    </div>
-
-    <div class="form-check text-start my-3">
-      <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">
-      <label class="form-check-label" for="flexCheckDefault">
-        Remember me
-      </label>
-    </div>
-    <button class="btn btn-danger w-100 py-2" type="submit">Se connecter</button>  
-    <a href="mdpo.php" class="mt-5">Mot de passe oublié ?</a>
-    <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2024</p>
-
-  <?php
-  
+    <?php
         if(isset($_POST['submit'])) {
-          $user = $_POST['user'];
-          $passwd = sha1($_POST['passwd']);
-  
-          $request = $AgencyDB->prepare("SELECT * FROM users WHERE name = ? AND passwd = ?");
-          $request->execute([$user, $passwd]);
-  
-          $answer = $request->fetch();
-          if ($answer) {
-              if ($answer['level'] == 0) {
-                  echo '<h3 style="text-align: center";>Vous ne possédez pas les priviléges nécessaires.</h3>';
-              } else {
-                  $_SESSION['connecte'] = true;
-                  $_SESSION['user'] = $user;
-                  $_SESSION['level'] = $answer['level'];
-                  $_SESSION['id_u'] = $answer['id_u'];
-                  header('location: ./post-admin.php');
-          }
-      } else {
-              echo '<h3 style="text-align: center";>Identifiants incorrects.</h3>';
-      }
-  }   
-  ?>
+            $email = $_POST['email'];
 
+            $request = $bdd->prepare("SELECT * FROM users WHERE email = ?");
+            $request->execute([$email]);
+
+            $answer = $request->fetch();
+
+            if ($answer) {
+                echo 'EMAIL TROUVE';
+                $new_mdp = generate_mdp();
+
+                $request = $bdd->prepare("UPDATE users SET mdp = ? WHERE email = ?");
+                $request->execute([sha1($new_mdp), $email]);
+                echo 'Mot de passe mis à jour!';
+            } else {
+                echo 'MAIL NON TROUVE';
+            }
+
+        }
+  ?>
+    <input type="submit" class="btn btn-danger w-100 py-2 mt-3" type="submit" name="submit" value="Vérifier"></input>  
+    <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2024</p>
   </form>
 </main>
 <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>

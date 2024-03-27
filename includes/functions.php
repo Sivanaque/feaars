@@ -28,6 +28,7 @@ function connection_bdd($db_name,$user,$mdp)
 {
     try {
         $bdd = new PDO("mysql:host=localhost;dbname=$db_name;charset=utf8", "$user","$mdp");
+        return $bdd;
     }
 
     catch (Exception $e){
