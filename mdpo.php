@@ -111,38 +111,39 @@
 <main class="form-signin w-50 m-auto ">
   <div class="container-fluid d-flex flex-column justify-content-center m-auto">
   <h1 class="h3 mb-3 fw-normal text-white">Rénitialiser</h1>
+  <?php
+    if(isset($_POST['submit'])) {
+      $email = $_POST['email'];
+
+      $request = $bdd->prepare("SELECT * FROM users WHERE email = ?");
+      $request->execute([$email]);
+
+      $answer = $request->fetch();
+
+      if ($answer) {
+          $new_mdp = sha1(generate_mdp());
+
+          $request = $bdd->prepare("UPDATE users SET mdp = ? WHERE email = ?");
+          $request->execute([$new_mdp, $email]);
+          echo "<b class='bg-success text-white p-1';>Votre mot de passe à été rénitialiser.</b>";
+      } else {
+          echo "<b class='bg-danger text-white p-1';>L'email saisi est incorrect.</b>";
+      }
+
+  }
+  ?>
     <form method="POST">
 
-    <div class="form-floating">
+    <div class="form-floating mt-3">
       <input type="text" class="form-control" id="floatingPassword" name="email" placeholder="email">
       <label for="floatingPassword">Email</label>
     </div>
-    <?php
-        if(isset($_POST['submit'])) {
-            $email = $_POST['email'];
-
-            $request = $bdd->prepare("SELECT * FROM users WHERE email = ?");
-            $request->execute([$email]);
-
-            $answer = $request->fetch();
-
-            if ($answer) {
-                $new_mdp = sha1(generate_mdp());
-
-                $request = $bdd->prepare("UPDATE users SET mdp = ? WHERE email = ?");
-                $request->execute([$new_mdp, $email]);
-                echo '<b class="text-white";>Mot de passe réinitialiser.</b>';
-            } else {
-                echo '<b class="text-white";>Votre mot de passe est incorrect.</b>';
-            }
-
-        }
-  ?>
     <input type="submit" class="btn btn-danger w-100 py-2 mt-3" type="submit" name="submit" value="Vérifier"></input>  
   </form>
       </div>
 </main>
 <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    </body>
+</form>    
+</body>
 </html>
